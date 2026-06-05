@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop All Gear — Rainhawk</title>
+  <meta name="description" content="Browse every Rainhawk product — weatherproof shells, sun hoodies, packs, hydration and trail-tested accessories." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="12" fill="#0b3d4f"/>
+          <path d="M10 30 C18 18 22 16 24 14 C26 16 30 18 38 30 C30 27 27 28 24 33 C21 28 18 27 10 30 Z" fill="#f59e0b"/>
+        </svg>
+        <span><b>Rain</b><span class="x">hawk</span></span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu">☰</button>
+      <nav class="nav-links">
+        <a href="shop.html">Shop All</a>
+        <a href="shop.html#Outerwear">Outerwear</a>
+        <a href="shop.html#Apparel">Apparel</a>
+        <a href="shop.html#Gear">Gear</a>
+        <a href="about.html">About</a>
+      </nav>
+      <span class="nav-spacer"></span>
+      <button class="cart-btn" data-open-cart aria-label="Open cart">
+        🛒 Cart
+        <span class="cart-count" data-cart-count style="display:none">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <h1>Shop all gear</h1>
+      <p>Everything we make, ready for whatever the sky is doing.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="shop-grid"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <div class="brand"><b>Rain</b><span style="color:#f59e0b">hawk</span></div>
+          <p style="max-width:30ch;font-size:.9rem">All-weather outdoor gear for people who head out anyway.</p>
+        </div>
+        <div><h4>Shop</h4><a href="shop.html">All gear</a><a href="shop.html#Outerwear">Outerwear</a><a href="shop.html#Apparel">Apparel</a></div>
+        <div><h4>Company</h4><a href="about.html">About us</a><a href="about.html#sustainability">Sustainability</a></div>
+        <div><h4>Support</h4><a href="#">Shipping & returns</a><a href="#">Contact</a></div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Rainhawk Outdoor Co.</span>
+        <span>This is a demo store</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

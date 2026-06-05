@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rainhawk — All-Weather Outdoor Gear</title>
+  <meta name="description" content="Rainhawk builds weatherproof outdoor gear for people who don't wait for the forecast. Shells, sun hoodies, packs & trail-tested essentials." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="12" fill="#0b3d4f"/>
+          <path d="M10 30 C18 18 22 16 24 14 C26 16 30 18 38 30 C30 27 27 28 24 33 C21 28 18 27 10 30 Z" fill="#f59e0b"/>
+          <path d="M24 14 L24 33" stroke="#0b3d4f" stroke-width="1.5"/>
+        </svg>
+        <span><b>Rain</b><span class="x">hawk</span></span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu">☰</button>
+      <nav class="nav-links">
+        <a href="shop.html">Shop All</a>
+        <a href="shop.html#Outerwear">Outerwear</a>
+        <a href="shop.html#Apparel">Apparel</a>
+        <a href="shop.html#Gear">Gear</a>
+        <a href="about.html">About</a>
+      </nav>
+      <span class="nav-spacer"></span>
+      <button class="cart-btn" data-open-cart aria-label="Open cart">
+        🛒 Cart
+        <span class="cart-count" data-cart-count style="display:none">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" style="color:#5fd0e6">Built for whatever the sky does</p>
+        <h1>Gear that doesn't wait for the forecast.</h1>
+        <p class="lead">Rainhawk makes weatherproof shells, sun hoodies, and trail-tested essentials for people who head out anyway. Engineered to keep up — rain, shine, or somewhere in between.</p>
+        <div class="hero-cta">
+          <a class="btn btn-accent btn-lg" href="shop.html">Shop the gear</a>
+          <a class="btn btn-ghost btn-lg" href="#bestsellers" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)">View bestsellers</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>40k+</b> trails covered</div>
+          <div><b>4.8★</b> avg rating</div>
+          <div><b>2-yr</b> weather warranty</div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg class="hawk" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Rainhawk emblem">
+          <circle cx="100" cy="100" r="92" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.18)"/>
+          <path d="M34 120 C66 74 80 64 100 50 C120 64 134 74 166 120 C132 108 116 112 100 142 C84 112 68 108 34 120 Z" fill="#f59e0b"/>
+          <path d="M100 50 L100 142" stroke="#0b3d4f" stroke-width="3"/>
+        </svg>
+        <div class="weather-chip c1"><span class="dot"></span> 20K waterproof</div>
+        <div class="weather-chip c2"><span class="dot"></span> Free 2-day shipping</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust">
+    <div class="wrap">
+      <div>🌧️ Tested in real weather</div>
+      <div>🚚 Free shipping over $75</div>
+      <div>↩️ 60-day returns</div>
+      <div>🛡️ 2-year warranty</div>
+    </div>
+  </div>
+
+  <!-- BESTSELLERS -->
+  <section id="bestsellers">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Trail-tested favorites</p>
+          <h2>This season's bestsellers</h2>
+          <p class="muted">The pieces our customers reach for first — picked from what's actually moving this year.</p>
+        </div>
+        <a class="btn btn-ghost" href="shop.html">All products →</a>
+      </div>
+      <div class="grid" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- FEATURE BAND -->
+  <section class="band">
+    <div class="wrap">
+      <div class="feat">
+        <div class="ico">🌦️</div>
+        <h3>Weather-first design</h3>
+        <p>Every piece starts with a question: what happens when the weather turns? Then we over-build for it.</p>
+      </div>
+      <div class="feat">
+        <div class="ico">♻️</div>
+        <h3>Built to last</h3>
+        <p>Responsibly sourced down, recycled shells, and a 2-year warranty because disposable gear is the enemy.</p>
+      </div>
+      <div class="feat">
+        <div class="ico">📦</div>
+        <h3>Fast, free shipping</h3>
+        <p>Orders over $75 ship free in 2 days. 60-day returns, no questions, if it's not right for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Find your kit</p>
+          <h2>Shop by category</h2>
+        </div>
+      </div>
+      <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))" id="category-grid"></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section>
+    <div class="wrap">
+      <div class="news">
+        <h2>Get 10% off your first order</h2>
+        <p>Join the flock for early drops, weather-ready tips, and a code for 10% off — straight to your inbox.</p>
+        <form data-newsletter>
+          <input type="email" required placeholder="you@example.com" aria-label="Email address" />
+          <button class="btn btn-accent" type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <div class="brand"><b>Rain</b><span style="color:#f59e0b">hawk</span></div>
+          <p style="max-width:30ch;font-size:.9rem">All-weather outdoor gear for people who head out anyway. Designed in Colorado, tested everywhere.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <a href="shop.html">All gear</a>
+          <a href="shop.html#Outerwear">Outerwear</a>
+          <a href="shop.html#Apparel">Apparel</a>
+          <a href="shop.html#Gear">Gear & accessories</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="about.html">About us</a>
+          <a href="about.html#sustainability">Sustainability</a>
+          <a href="about.html#warranty">Warranty</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="#">Shipping & returns</a>
+          <a href="#">Size guide</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Rainhawk Outdoor Co. All rights reserved.</span>
+        <span>Privacy · Terms · This is a demo store</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
