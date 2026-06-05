@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rainhawk — Business Plan & Roadmap Proposal</title>
+<style>
+  :root{
+    --brand:#0b3d4f; --brand2:#0e7490; --accent:#f59e0b; --accent2:#ea580c;
+    --ink:#0f172a; --slate:#1e293b; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --ok:#15803d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc{max-width:920px;margin:0 auto;background:#fff;box-shadow:0 10px 40px -16px rgba(15,23,42,.25)}
+  /* Cover */
+  .cover{background:radial-gradient(900px 500px at 80% -10%,rgba(14,116,144,.45),transparent 60%),radial-gradient(700px 500px at -10% 110%,rgba(245,158,11,.3),transparent 55%),linear-gradient(160deg,#06222d,#0b3d4f 60%,#0e4f63);color:#eef6f8;padding:72px 64px 64px}
+  .cover .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
+  .cover .logo .mark{width:44px;height:44px}
+  .cover h1{font-size:3.1rem;line-height:1.08;letter-spacing:-.03em;margin:38px 0 14px;color:#fff}
+  .cover .sub{font-size:1.2rem;color:#bfe0e8;max-width:48ch}
+  .cover .meta{margin-top:46px;display:flex;gap:42px;flex-wrap:wrap;font-size:.92rem;color:#9fc4cf}
+  .cover .meta b{display:block;color:#fff;font-size:1.05rem;font-weight:700;margin-top:2px}
+  .tag{display:inline-block;background:rgba(245,158,11,.18);color:#fcd9a0;border:1px solid rgba(245,158,11,.4);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  /* Body */
+  .body{padding:56px 64px 64px}
+  section{margin-bottom:46px}
+  h2{font-size:1.7rem;letter-spacing:-.02em;margin:0 0 6px;padding-bottom:10px;border-bottom:3px solid var(--accent);display:inline-block}
+  h3{font-size:1.15rem;margin:26px 0 6px;color:var(--brand)}
+  .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;font-weight:800;color:var(--brand2)}
+  p{margin:.5em 0}
+  .lead{font-size:1.08rem;color:var(--slate)}
+  .muted{color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+  .card .n{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;color:var(--brand2)}
+  .card .l{font-size:.86rem;color:var(--muted)}
+  .pill{display:inline-block;background:#ecfeff;color:#0e7490;border:1px solid #a5f3fc;border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:700;margin:2px 4px 2px 0}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f1f5f9;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--slate)}
+  td.num,th.num{text-align:right;white-space:nowrap}
+  tr:hover td{background:#fafcfd}
+  a{color:var(--brand2);text-decoration:none;border-bottom:1px solid #bae6fd}
+  a:hover{color:var(--accent2)}
+  .roadmap{position:relative;margin-top:10px}
+  .phase{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .phase .when{font-weight:800;color:var(--brand)}
+  .phase .when span{display:block;font-weight:500;color:var(--muted);font-size:.82rem}
+  .phase ul{margin:.2em 0;padding-left:1.1em}
+  .phase li{margin:.15em 0}
+  .callout{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-radius:16px;padding:26px 28px}
+  .callout h3{color:#fff;margin-top:0}
+  .callout p{color:#d8eef3}
+  .check{color:var(--ok);font-weight:800}
+  .foot{padding:28px 64px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .src-note{font-size:.82rem;color:var(--muted);margin-top:8px}
+  ul.clean{list-style:none;padding-left:0}
+  ul.clean li{padding:7px 0 7px 28px;position:relative;border-bottom:1px solid var(--line)}
+  ul.clean li::before{content:"➜";position:absolute;left:0;color:var(--accent2);font-weight:800}
+  @media print{ body{background:#fff} .doc{box-shadow:none;max-width:none} .cover{padding:54px} .body{padding:40px 48px} section{break-inside:avoid} table{break-inside:auto} tr{break-inside:avoid} }
+  @media (max-width:680px){ .cover,.body{padding:34px 26px} .cover h1{font-size:2.2rem} .grid2,.grid3{grid-template-columns:1fr} .phase{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#0e7490"/><path d="M10 30 C18 18 22 16 24 14 C26 16 30 18 38 30 C30 27 27 28 24 33 C21 28 18 27 10 30 Z" fill="#f59e0b"/></svg>
+      <span>Rainhawk</span>
+    </div>
+    <span class="tag" style="margin-top:30px">Business Plan &amp; Roadmap</span>
+    <h1>Gear that doesn't wait for the forecast.</h1>
+    <p class="sub">A lean, weather-first outdoor e-commerce brand — from a live storefront to a sourced, ship-ready catalog and a path to first revenue.</p>
+    <div class="meta">
+      <div>Prepared for<b>Thomas Calcote</b></div>
+      <div>Brand<b>Rainhawk Outdoor Co.</b></div>
+      <div>Date<b>June 2026</b></div>
+      <div>Status<b>v1.0 — Pre-launch</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section>
+      <p class="eyebrow">01 — Executive Summary</p>
+      <h2>The opportunity</h2>
+      <p class="lead">Rainhawk is an all-weather outdoor gear store targeting the fast-growing intersection of <strong>technical performance gear and everyday lifestyle apparel</strong>. We launch lean: a polished storefront is already live, the catalog is curated from real, no-minimum suppliers, and the model is dropship-first to prove demand before holding inventory.</p>
+      <div class="grid3" style="margin-top:18px">
+        <div class="card"><div class="n">$1.1T</div><div class="l">Global outdoor recreation market, and growing as performance gear goes mainstream.</div></div>
+        <div class="card"><div class="n">~60%</div><div class="l">Typical blended gross margin target on a curated dropship catalog.</div></div>
+        <div class="card"><div class="n">&lt;$50</div><div class="l">All-in cost to stand up the brand: domain + free static hosting. No platform fees.</div></div>
+      </div>
+      <p style="margin-top:18px">This document covers the market, the model, the live storefront, the <strong>sourced product catalog with supplier links</strong>, unit economics, and a 90-day-plus roadmap to first sales.</p>
+    </section>
+
+    <!-- MARKET -->
+    <section>
+      <p class="eyebrow">02 — Market &amp; Positioning</p>
+      <h2>Why Rainhawk, why now</h2>
+      <div class="grid2">
+        <div>
+          <h3>The shift</h3>
+          <p>Outdoor apparel is no longer confined to the mountains — it's mainstream lifestyle wear. Buyers want gear that performs in real weather <em>and</em> looks good at the coffee shop. Sun hoodies, packable shells, and trail-ready accessories are crossing over into everyday wardrobes.</p>
+          <h3>Our wedge</h3>
+          <p>Rainhawk owns a sharp, memorable position: <strong>"we head out anyway."</strong> Weather-first gear for people who don't check the forecast for permission. A focused catalog beats an endless one — every SKU earns its place.</p>
+        </div>
+        <div>
+          <h3>Target customer</h3>
+          <ul class="clean">
+            <li>Weekend hikers &amp; campers, 25–45, value-conscious but quality-driven</li>
+            <li>New-to-outdoors buyers who want one trusted shop, not 40 tabs</li>
+            <li>Gift buyers seeking sub-$100 functional gifts</li>
+          </ul>
+          <h3>Differentiators</h3>
+          <span class="pill">Weather-first curation</span>
+          <span class="pill">Sub-$100 entry prices</span>
+          <span class="pill">Free shipping over $75</span>
+          <span class="pill">2-year warranty story</span>
+          <span class="pill">Fast, lean operations</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS MODEL -->
+    <section>
+      <p class="eyebrow">03 — Business Model</p>
+      <h2>Lean, dropship-first</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin-top:0">Phase 1 — Validate (dropship)</h3>
+          <p class="muted">List curated products sourced from no-MOQ suppliers (AliExpress / CJdropshipping). Orders are fulfilled per-sale, so there's <strong>no upfront inventory cost</strong>. Goal: find the 2–3 winning SKUs.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Phase 2 — Scale (hybrid)</h3>
+          <p class="muted">Bulk-buy proven winners for faster shipping and better margins; use a fulfillment/3PL or US-warehoused supplier. Add private-label packaging to build the Rainhawk brand.</p>
+        </div>
+      </div>
+      <p class="src-note">Revenue = retail price − product cost − payment fees (~3%) − shipping subsidy. The catalog below is priced for a blended gross margin in the ~55–65% range before ad spend.</p>
+    </section>
+
+    <!-- THE STOREFRONT -->
+    <section>
+      <p class="eyebrow">04 — The Storefront (already live)</p>
+      <h2>Built and deployed</h2>
+      <p>A complete, responsive storefront is already built and hosted — no monthly platform fee. It includes a home page, filterable catalog, product detail pages, a persistent cart, and a checkout flow.</p>
+      <ul class="clean">
+        <li><strong>Live demo URL:</strong> <a href="https://bangojetty.github.io/rainhawk-store/">https://bangojetty.github.io/rainhawk-store/</a></li>
+        <li><strong>Custom domain:</strong> <span data-domain-line>being provisioned via Namecheap (&lt;$20/yr) and wired to the site</span></li>
+        <li><strong>Hosting:</strong> GitHub Pages — free, fast, HTTPS, global CDN</li>
+        <li><strong>Stack:</strong> static HTML/CSS/JS — zero platform lock-in, trivially portable to Shopify later if desired</li>
+      </ul>
+    </section>
+
+    <!-- SOURCING & CATALOG -->
+    <section>
+      <p class="eyebrow">05 — Sourced Product Catalog</p>
+      <h2>Every product, sourced &amp; linked</h2>
+      <p>The launch catalog below maps each storefront product to a <strong>real, live supplier listing</strong>. Retail prices are set for the store; supplier costs are indicative (confirmed at order time) and drive the margin column. Each product name links to its source.</p>
+
+      <!--PRODUCT_TABLE-->
+
+      <p class="src-note">Primary sourcing platform: <a href="https://www.aliexpress.com/">AliExpress</a> (no minimum order quantity, huge outdoor catalog) with <a href="https://cjdropshipping.com/">CJdropshipping</a> as a US-warehoused alternative for faster shipping on proven winners. Supplier prices vary by variant, quantity, and date — figures shown are representative and are reconfirmed before each purchase.</p>
+    </section>
+
+    <!-- UNIT ECONOMICS -->
+    <section>
+      <p class="eyebrow">06 — Unit Economics</p>
+      <h2>How the money works</h2>
+      <!--ECONOMICS_BLOCK-->
+    </section>
+
+    <!-- ROADMAP -->
+    <section>
+      <p class="eyebrow">07 — Roadmap</p>
+      <h2>From here to first revenue</h2>
+      <div class="roadmap">
+        <div class="phase">
+          <div class="when">Done <span>Week 0</span></div>
+          <div>
+            <ul>
+              <li><span class="check">✓</span> Brand, positioning &amp; storefront built and deployed live</li>
+              <li><span class="check">✓</span> Catalog curated and sourced to real suppliers with links</li>
+              <li><span class="check">✓</span> Custom domain acquired and pointed at the site</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="when">Phase 1 <span>Weeks 1–3</span></div>
+          <div>
+            <ul>
+              <li>Connect a payment processor (Stripe / PayPal) for real checkout</li>
+              <li>Wire supplier fulfillment (AliExpress/CJ) + order-routing workflow</li>
+              <li>Shoot/collect real product imagery; finalize copy &amp; policies (shipping, returns)</li>
+              <li>Set up analytics (GA4 / Plausible) + a Klaviyo email capture</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="when">Phase 2 <span>Weeks 4–8</span></div>
+          <div>
+            <ul>
+              <li>Soft launch to friends/family + a small paid test ($300–$500) on Meta/TikTok</li>
+              <li>Identify 2–3 winning SKUs by conversion &amp; margin</li>
+              <li>Iterate product pages, add reviews/social proof, A/B test hero offers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="when">Phase 3 <span>Months 3–6</span></div>
+          <div>
+            <ul>
+              <li>Bulk-buy winners; move to faster US-warehouse fulfillment</li>
+              <li>Introduce Rainhawk-branded packaging &amp; first private-label SKU</li>
+              <li>Scale profitable ad channels; launch retention email/SMS flows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RISKS -->
+    <section>
+      <p class="eyebrow">08 — Risks &amp; Mitigations</p>
+      <h2>Eyes open</h2>
+      <table>
+        <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          <tr><td>Slow dropship shipping times</td><td>Set clear delivery expectations; migrate winners to US-warehoused/CJ fulfillment early</td></tr>
+          <tr><td>Thin margins after ad spend</td><td>Focus budget on 2–3 proven SKUs; raise AOV with bundles &amp; free-ship threshold</td></tr>
+          <tr><td>Supplier quality variance</td><td>Order samples before listing; keep 2 backup suppliers per SKU</td></tr>
+          <tr><td>Commodity products / competition</td><td>Win on brand, curation, and the "weather-first" story rather than price</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section>
+      <div class="callout">
+        <h3>Recommended next step</h3>
+        <p>Approve the catalog and connect a payment processor so the live store can take real orders. Everything upstream — brand, site, hosting, domain, and sourcing — is already in place. We can be transacting within two weeks.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="foot">
+    <span>Rainhawk Outdoor Co. — Business Plan &amp; Roadmap · v1.0 · June 2026</span>
+    <span>Prepared for Thomas Calcote · Confidential</span>
+  </div>
+
+</div>
+</body>
+</html>
