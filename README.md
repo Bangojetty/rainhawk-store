@@ -6,7 +6,8 @@ so it deploys anywhere that serves static files (GitHub Pages, Netlify, S3, …)
 
 ## Live site
 
-Hosted on GitHub Pages — see the repository's Pages settings for the URL.
+**https://bangojetty.github.io/rainhawk-store/** — hosted free on GitHub Pages
+from the `main` branch of [`Bangojetty/rainhawk-store`](https://github.com/Bangojetty/rainhawk-store).
 
 ## What's inside
 
