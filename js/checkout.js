@@ -1,9 +1,12 @@
-/* Checkout page — order summary + shipping/payment form + confirmation.
-   Demo only: no real payment processor is contacted. */
+/* Checkout page — order summary + payment.
+   LIVE mode  → hands off to Stripe (no card data ever touches this page).
+   DEMO mode  → clearly-labelled simulation; no real payment is processed. */
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("checkout-root");
   const Cart = window.RainhawkCart;
   const money = window.rainhawkMoney;
+  const Payments = window.RainhawkPayments;
+  const live = () => (Payments ? Payments.isLive() : false);
 
   function render() {
     const items = Cart.items();
@@ -26,6 +29,28 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>`;
       })
       .join("");
+
+    const canCharge = Payments && Payments.canCharge(items);
+
+    // Payment area differs by mode. In LIVE mode we never render card inputs —
+    // Stripe's hosted checkout collects payment on Stripe's PCI-compliant page.
+    const paymentBlock = canCharge
+      ? `<h3 style="margin-top:1.4rem">Payment</h3>
+         <p class="muted" style="margin:.2rem 0 1rem">You'll be redirected to our secure Stripe checkout to pay. Your card details are entered on Stripe and never touch this site.</p>
+         <button class="btn btn-accent btn-block btn-lg" type="submit" id="place">
+           Pay securely — <span id="btn-total"></span>
+         </button>
+         <p class="pay-note">🔒 Payments processed by Stripe. PCI-DSS compliant.</p>`
+      : `<h3 style="margin-top:1.4rem">Payment</h3>
+         <div class="field"><label for="card">Card number</label><input id="card" required placeholder="4242 4242 4242 4242" inputmode="numeric" /></div>
+         <div class="row-2">
+           <div class="field"><label for="exp">Expiry</label><input id="exp" required placeholder="MM/YY" /></div>
+           <div class="field"><label for="cvc">CVC</label><input id="cvc" required placeholder="123" inputmode="numeric" /></div>
+         </div>
+         <button class="btn btn-accent btn-block btn-lg" type="submit" id="place" style="margin-top:.6rem">
+           Place order — <span id="btn-total"></span>
+         </button>
+         <p class="pay-note">🔒 Demo checkout — no real payment is processed and no card data is sent anywhere.</p>`;
 
     root.innerHTML = `
       <div class="checkout">
@@ -51,17 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <select id="country"><option>United States</option><option>Canada</option><option>United Kingdom</option><option>Australia</option></select>
           </div>
 
-          <h3 style="margin-top:1.4rem">Payment</h3>
-          <div class="field"><label for="card">Card number</label><input id="card" required placeholder="4242 4242 4242 4242" inputmode="numeric" /></div>
-          <div class="row-2">
-            <div class="field"><label for="exp">Expiry</label><input id="exp" required placeholder="MM/YY" /></div>
-            <div class="field"><label for="cvc">CVC</label><input id="cvc" required placeholder="123" inputmode="numeric" /></div>
-          </div>
-
-          <button class="btn btn-accent btn-block btn-lg" type="submit" id="place" style="margin-top:.6rem">
-            Place order — <span id="btn-total"></span>
-          </button>
-          <p class="pay-note">🔒 This is a demo store. No real payment is processed and no card data is sent anywhere.</p>
+          ${paymentBlock}
         </form>
 
         <aside class="panel" style="position:sticky;top:88px">
@@ -81,24 +96,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateTotals() {
-    const sub = Cart.subtotal();
-    const ship = Cart.shipping();
-    const tax = Cart.tax();
-    const total = Cart.total();
     const set = (id, v) => {
       const el = document.getElementById(id);
       if (el) el.textContent = v;
     };
-    set("sum-sub", money(sub));
-    set("sum-ship", ship === 0 ? "Free" : money(ship));
-    set("sum-tax", money(tax));
-    set("sum-total", money(total));
-    set("btn-total", money(total));
+    set("sum-sub", money(Cart.subtotal()));
+    set("sum-ship", Cart.shipping() === 0 ? "Free" : money(Cart.shipping()));
+    set("sum-tax", money(Cart.tax()));
+    set("sum-total", money(Cart.total()));
+    set("btn-total", money(Cart.total()));
   }
 
-  function placeOrder(e) {
+  async function placeOrder(e) {
     e.preventDefault();
     const form = e.target;
+
+    // Validate the contact/shipping fields that are always present.
+    const required = ["email", "fn", "ln", "addr", "city", "zip"];
+    for (const id of required) {
+      const el = document.getElementById(id);
+      if (el && !el.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+    }
+
+    const items = Cart.items();
+
+    // LIVE: hand off to Stripe. The shopper pays on Stripe's hosted page.
+    if (Payments && Payments.canCharge(items)) {
+      const btn = document.getElementById("place");
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Redirecting to secure checkout…";
+      }
+      const took = await Payments.startCheckout(items);
+      if (!took && btn) {
+        btn.disabled = false;
+        updateTotals();
+      }
+      return;
+    }
+
+    // DEMO: simulate a confirmed order.
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
@@ -121,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   render();
   document.addEventListener("cart:change", () => {
-    // keep totals/lines in sync if the drawer is used while on this page
     if (document.getElementById("checkout-form")) render();
   });
 });

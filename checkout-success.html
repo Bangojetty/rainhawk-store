@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order confirmed — Rainhawk</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="12" fill="#0b3d4f"/>
+          <path d="M10 30 C18 18 22 16 24 14 C26 16 30 18 38 30 C30 27 27 28 24 33 C21 28 18 27 10 30 Z" fill="#f59e0b"/>
+        </svg>
+        <span><b>Rain</b><span class="x">hawk</span></span>
+      </a>
+      <span class="nav-spacer"></span>
+      <button class="cart-btn" data-open-cart aria-label="Open cart">🛒 Cart <span class="cart-count" data-cart-count style="display:none">0</span></button>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap" id="confirm-root"></div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-bottom" style="border:none;margin:0;padding:0">
+        <span>© 2026 Rainhawk Outdoor Co.</span>
+        <span>🔒 Payment processed securely by Stripe</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/store.js"></script>
+  <script>
+    // The shopper has returned from Stripe's hosted checkout after paying.
+    // Clear the cart and confirm. Order/fulfillment is handled server-side via
+    // the Stripe webhook (see DROPSHIPPING.md), not from this page.
+    (function () {
+      try { window.RainhawkCart && window.RainhawkCart.clear(); } catch (e) {}
+      var params = new URLSearchParams(location.search);
+      var sid = params.get("session_id");
+      var ref = sid ? "RH-" + sid.slice(-8).toUpperCase() : "RH-CONFIRMED";
+      document.getElementById("confirm-root").innerHTML =
+        '<div class="confirm">' +
+        '<div class="check">✓</div>' +
+        '<h2>Order confirmed</h2>' +
+        '<p class="muted">Thank you! Your payment was received and a confirmation email is on its way.</p>' +
+        '<p style="font-size:1.05rem;margin:.4rem 0"><strong>Order ' + ref + '</strong></p>' +
+        '<p class="muted" style="max-width:42ch;margin:.6rem auto 1.4rem">Your gear is being prepared for shipment. You\'ll get tracking as soon as it\'s on the way.</p>' +
+        '<a class="btn btn-primary btn-lg" href="shop.html">Keep shopping</a>' +
+        '</div>';
+    })();
+  </script>
+</body>
+</html>

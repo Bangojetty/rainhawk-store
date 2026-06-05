@@ -1,0 +1,10 @@
+name = "rainhawk-checkout"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Lock CORS to the live storefront. Update if the domain changes.
+[vars]
+ALLOWED_ORIGIN = "https://rainhawkgear.com"
+
+# STRIPE_SECRET_KEY is NOT set here — it is a secret:
+#   npx wrangler secret put STRIPE_SECRET_KEY

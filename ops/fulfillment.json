@@ -1,0 +1,25 @@
+{
+  "$comment": "Rainhawk dropship fulfillment manifest. Single source of truth for order routing: each storefront product maps to a live supplier listing with observed cost and computed margin. Used by the ops runbook (DROPSHIPPING.md) and the DSers/AliExpress order workflow. Prices in USD.",
+  "model": "dropship",
+  "primarySupplierPlatform": "AliExpress (via DSers order automation)",
+  "fulfillmentSLAdays": 2,
+  "updated": "2026-06-05",
+  "products": [
+    { "id": "stormcrest-rain-shell", "name": "Stormcrest Packable Rain Shell", "retail": 139.00, "supplierCost": 68.36, "marginAbs": 70.64, "marginPct": 50.8, "supplier": "JR XINBOFENG (AliExpress)", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=men+packable+waterproof+rain+jacket+hooded" },
+    { "id": "solaris-sun-hoodie", "name": "Solaris UPF 50+ Sun Hoodie", "retail": 39.00, "supplierCost": 8.50, "marginAbs": 30.50, "marginPct": 78.2, "supplier": "AliExpress UPF 50+ supplier", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=men+UPF+50+sun+hoodie+quick+dry" },
+    { "id": "ember-down-jacket", "name": "Ember Ultralight Down Jacket", "retail": 99.00, "supplierCost": 47.74, "marginAbs": 51.26, "marginPct": 51.8, "supplier": "NH (AliExpress)", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=men+ultralight+packable+down+jacket" },
+    { "id": "drift-merino-crew", "name": "Drift Merino Base Layer", "retail": 89.00, "supplierCost": 43.00, "marginAbs": 46.00, "marginPct": 51.7, "supplier": "AliExpress merino supplier", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=men+merino+wool+base+layer+long+sleeve" },
+    { "id": "switchback-40-pack", "name": "Switchback 40L Trekking Pack", "retail": 69.00, "supplierCost": 18.13, "marginAbs": 50.87, "marginPct": 73.7, "supplier": "AliExpress 40L pack supplier", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=40L+hiking+backpack+waterproof" },
+    { "id": "talon-carbon-poles", "name": "Talon Carbon Trekking Poles", "retail": 79.00, "supplierCost": 36.24, "marginAbs": 42.76, "marginPct": 54.1, "supplier": "AliExpress carbon pole supplier", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=carbon+fiber+folding+trekking+poles" },
+    { "id": "nimbus-dry-bag", "name": "Nimbus 20L Waterproof Dry Bag", "retail": 29.00, "supplierCost": 10.91, "marginAbs": 18.09, "marginPct": 62.4, "supplier": "AliExpress dry bag supplier", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=waterproof+dry+bag+20L+roll+top" },
+    { "id": "cascade-filter-bottle", "name": "Cascade Filter Water Bottle", "retail": 34.00, "supplierCost": 18.14, "marginAbs": 15.86, "marginPct": 46.6, "supplier": "AliExpress filter bottle supplier", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=filter+water+bottle+hiking+survival" },
+    { "id": "ridgeline-hiking-pants", "name": "Ridgeline Quick-Dry Hiking Pants", "retail": 59.00, "supplierCost": 12.39, "marginAbs": 46.61, "marginPct": 79.0, "supplier": "AliExpress tactical pants supplier", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=men+quick+dry+hiking+pants" },
+    { "id": "beacon-headlamp", "name": "Beacon Rechargeable Headlamp", "retail": 44.00, "supplierCost": 21.38, "marginAbs": 22.62, "marginPct": 51.4, "supplier": "SOFIRN (AliExpress)", "sourceUrl": "https://www.aliexpress.com/wholesale?SearchText=rechargeable+LED+headlamp" }
+  ],
+  "blendedMarginPct": 58.0,
+  "notes": [
+    "Costs are indicative supplier prices observed June 2026; refresh before each restock cycle as AliExpress pricing drifts.",
+    "DSers auto-places the AliExpress order against the customer's shipping address when a Stripe payment succeeds (via the Stripe->ops webhook, see DROPSHIPPING.md).",
+    "Keep >=40% net margin after the ~5-12 day ePacket/Choice shipping; drop or reprice any SKU that falls below it."
+  ]
+}
