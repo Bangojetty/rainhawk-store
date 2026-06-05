@@ -106,9 +106,10 @@ h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; }
 .hero {
   position: relative; overflow: hidden;
   background:
-    radial-gradient(900px 500px at 80% -10%, rgba(14, 116, 144, 0.25), transparent 60%),
+    radial-gradient(900px 500px at 80% -10%, rgba(14, 116, 144, 0.28), transparent 60%),
     radial-gradient(700px 500px at 0% 110%, rgba(245, 158, 11, 0.18), transparent 55%),
-    linear-gradient(160deg, #06222d 0%, #0b3d4f 55%, #0e4f63 100%);
+    linear-gradient(160deg, rgba(6, 34, 45, 0.88) 0%, rgba(11, 61, 79, 0.80) 50%, rgba(14, 79, 99, 0.72) 100%),
+    url("../assets/hero-bg.jpg") center 30% / cover no-repeat;
   color: #eef6f8;
 }
 .hero .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2rem; align-items: center; padding-block: clamp(3rem, 7vw, 5.5rem); }
@@ -165,8 +166,10 @@ section { padding-block: clamp(2.6rem, 6vw, 4.5rem); }
   transition: transform 0.16s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #cbd5e1; }
-.card-art { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
-.card-art .product-art { width: 100%; height: 100%; }
+.card-art { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #eef3f5; }
+.card-art .product-art { width: 100%; height: 100%; transition: transform 0.45s ease; }
+img.product-art { object-fit: cover; }
+.card:hover .card-art .product-art { transform: scale(1.045); }
 .card-badge {
   position: absolute; top: 10px; left: 10px; background: var(--accent); color: #3b2503;
   font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;

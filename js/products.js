@@ -12,6 +12,7 @@
 const RAINHAWK_PRODUCTS = [
   {
     id: "stormcrest-rain-shell",
+    image: "assets/products/stormcrest-rain-shell.jpg",
     name: "Stormcrest Packable Rain Shell",
     category: "Outerwear",
     price: 139.0,
@@ -36,6 +37,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "solaris-sun-hoodie",
+    image: "assets/products/solaris-sun-hoodie.jpg",
     name: "Solaris UPF 50+ Sun Hoodie",
     category: "Apparel",
     price: 39.0,
@@ -60,6 +62,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "ember-down-jacket",
+    image: "assets/products/ember-down-jacket.jpg",
     name: "Ember Ultralight Down Jacket",
     category: "Outerwear",
     price: 99.0,
@@ -84,6 +87,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "drift-merino-crew",
+    image: "assets/products/drift-merino-crew.jpg",
     name: "Drift Merino Base Layer",
     category: "Apparel",
     price: 89.0,
@@ -107,6 +111,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "switchback-40-pack",
+    image: "assets/products/switchback-40-pack.jpg",
     name: "Switchback 40L Trekking Pack",
     category: "Packs",
     price: 69.0,
@@ -131,6 +136,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "talon-carbon-poles",
+    image: "assets/products/talon-carbon-poles.jpg",
     name: "Talon Carbon Trekking Poles",
     category: "Gear",
     price: 79.0,
@@ -154,6 +160,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "nimbus-dry-bag",
+    image: "assets/products/nimbus-dry-bag.jpg",
     name: "Nimbus 20L Waterproof Dry Bag",
     category: "Hydration",
     price: 29.0,
@@ -177,6 +184,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "cascade-filter-bottle",
+    image: "assets/products/cascade-filter-bottle.jpg",
     name: "Cascade Filter Water Bottle",
     category: "Hydration",
     price: 34.0,
@@ -201,6 +209,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "ridgeline-hiking-pants",
+    image: "assets/products/ridgeline-hiking-pants.jpg",
     name: "Ridgeline Quick-Dry Hiking Pants",
     category: "Apparel",
     price: 59.0,
@@ -224,6 +233,7 @@ const RAINHAWK_PRODUCTS = [
   },
   {
     id: "beacon-headlamp",
+    image: "assets/products/beacon-headlamp.jpg",
     name: "Beacon Rechargeable Headlamp",
     category: "Gear",
     price: 44.0,
@@ -276,6 +286,11 @@ const RAINHAWK_ICONS = {
 };
 
 function rainhawkProductImage(product, opts = {}) {
+  // Prefer a real product photo when present; fall back to the branded SVG tile
+  // so the storefront never shows a broken image even if one is missing.
+  if (product.image) {
+    return `<img class="product-art" src="${product.image}" alt="${product.name}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />`;
+  }
   const a = product.accent || "#0e7490";
   const glyph = RAINHAWK_ICONS[product.icon] || RAINHAWK_ICONS.jacket;
   const id = product.id;
